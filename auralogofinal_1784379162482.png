@@ -1,0 +1,71 @@
+You are a senior AI + 3D + Computer Vision engineer.
+
+Fix and upgrade my Next.js project "Aura Sign" with the following strict requirements:
+
+1. CAMERA / GESTURE DETECTION (PRO LEVEL)
+- Replace weak rule-based detection with a more accurate system using MediaPipe Holistic.
+- Track BOTH hands, pose, and finger states.
+- Detect gestures using:
+  - finger openness (extended vs folded)
+  - relative distances between landmarks
+  - motion (movement over time, not just static frame)
+- Add temporal smoothing (buffer last 10 frames) to avoid flickering predictions.
+- Output stable gesture labels like: "hello", "sorry", "mother"
+
+2. AVATAR ANIMATION (CRITICAL FIX)
+- Fix issue where avatar keeps moving in same direction.
+- Ensure animations STOP before next starts.
+- Use THREE.AnimationMixer correctly:
+  - stopAllAction()
+  - reset()
+  - fadeIn / fadeOut
+- Each word must map to a REAL animation clip.
+- If animation not found → fallback to Idle.
+
+3. SIGN LANGUAGE CORRECTNESS
+- Do NOT randomly map words.
+- Ensure:
+  - "sorry" → circular motion near chest
+  - "mother" → thumb at chin
+  - "hello" → hand wave outward
+- If animations are missing:
+  - clearly log missing clips in console
+
+4. AVATAR EXPLAINS SIGN (NEW FEATURE)
+- When a word is played:
+  - show subtitle text like:
+    "SORRY: Move your hand in a circle near your chest"
+- Also use SpeechSynthesis to speak explanation.
+
+5. CODE STRUCTURE IMPROVEMENT
+- Separate logic into:
+  - gestureEngine.ts
+  - animationController.ts
+- Keep components clean
+
+6. PERFORMANCE
+- Use requestAnimationFrame loop properly
+- Avoid reloading model
+- Optimize camera feed
+
+7. UI IMPROVEMENTS
+- Show:
+  - detected gesture (live)
+  - confidence level
+  - current animation playing
+
+8. DEBUG MODE
+- Add toggle:
+  - show landmarks overlay
+  - console logs for gestures
+
+9. FINAL OUTPUT
+- Provide FULL updated files:
+  - CameraFeed.tsx
+  - AvatarCanvas.tsx
+  - gestureEngine.ts
+  - dictionary.ts
+- Code must be copy-paste ready and working.
+
+Important:
+Do NOT give explanations only — give full working code.

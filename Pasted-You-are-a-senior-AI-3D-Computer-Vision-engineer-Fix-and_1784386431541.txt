@@ -1,0 +1,118 @@
+Build a full advanced AI-powered web app called "Aura Sign" using Next.js.
+
+TAGLINE:
+Display on homepage:
+"Bridging Silence. Connecting Worlds."
+
+-------------------------------------
+
+APP STRUCTURE (IMPORTANT):
+The app must NOT be a single page.
+
+Create 2 main screens:
+
+1. HOME SCREEN:
+- Centered modern UI
+- Show app name "Aura Sign"
+- Show tagline: "Bridging Silence. Connecting Worlds."
+- Two large buttons:
+  1. "Text / Speech to Sign"
+  2. "Sign to Text / Speech"
+- Smooth navigation to each screen
+
+-------------------------------------
+
+2. SCREEN: TEXT / SPEECH → SIGN
+
+Features:
+- Input box for typing text
+- Microphone button for speech input
+- Convert FULL WORDS (not letter-by-letter)
+- Use a dictionary of 100+ words (hello, sorry, mother, please, thank you, etc.)
+- If word exists → trigger full sign animation
+- If not → fallback to alphabet spelling
+
+Avatar (VERY IMPORTANT):
+- Use Three.js (NO iframe, NO ReadyPlayerMe)
+- Load a skeletal / rigged humanoid avatar (GLB)
+- Avatar must allow bone-level control (arms, hands)
+- Avatar must perform gestures (not remain idle)
+- Add idle + sign animations
+- Prefer visible skeleton or debug bone structure
+
+Controls:
+- Play / Reset avatar
+- Clear text
+
+-------------------------------------
+
+3. SCREEN: SIGN → TEXT / SPEECH
+
+Camera + Detection:
+- Use MediaPipe Holistic (NOT just Hands)
+- Detect:
+  - Hands
+  - Body pose (chest, shoulders, head)
+- Improve accuracy using position + motion
+
+Gesture Recognition (IMPORTANT):
+- Do NOT rely only on A–Z
+- Implement rule-based word detection:
+
+Examples:
+- Hand touching chest → "sorry"
+- Hand near chin → "mother"
+- Circular motion on chest → "please"
+
+- Still support A–Z as fallback
+
+Output:
+- Show detected words in real-time
+- Build sentence automatically
+- Add text-to-speech playback
+
+Controls:
+- Start / Stop camera
+- Clear text
+- Speak output
+
+-------------------------------------
+
+CORE SYSTEM REQUIREMENTS:
+
+1. Word-Based System:
+- Must prioritize FULL WORD detection
+- Include 100+ word dictionary
+- Map:
+  word → gesture rule → avatar animation
+
+2. Avatar Animation:
+- When word detected → trigger matching sign animation
+- Example:
+  "sorry" → avatar performs sorry gesture
+  "mother" → avatar performs mother gesture
+
+3. Detection Quality:
+- Use smoothing to avoid flickering
+- Add confidence threshold
+- Ignore noise
+
+4. UI Design:
+- Dark AI-style dashboard
+- Clean and modern (similar to Rylo)
+- Smooth transitions
+- Fully responsive
+
+5. Code Quality:
+- Use Next.js (App Router)
+- Modular components
+- Clean structure
+- No unnecessary libraries
+
+IMPORTANT RULES:
+- NO iframe usage
+- NO basic avatars
+- MUST use skeletal rigged avatar
+- MUST detect position-based gestures (not only hand shapes)
+- MUST support FULL WORD signing
+- Avatar must visibly perform signs
